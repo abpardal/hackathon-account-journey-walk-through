@@ -1,1 +1,23 @@
-<p>walk-through works!</p>
+<div class="container" [ngStyle]="{'top': configs.position?.top, 'bottom': configs.position?.bottom, 'right': configs.position?.right, 'left': configs.position?.left}">
+    <div *ngIf="isPopupVisible">
+        <mat-card class="card-wrapper">
+            <mat-card-header>
+              <mat-card-title>{{title}}</mat-card-title>
+              <mat-card-subtitle>{{description}}</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content *ngIf="actualStepId > 0">
+                <p>{{actualStepId}}/{{configs.steps.length}}</p>
+              </mat-card-content>
+            <mat-card-actions class="actions">
+              <button mat-raised-button (click)="skipDemo()">SKIP</button>
+              <button mat-raised-button color="primary" (click)="nextStep()" [disabled]="actualStepId === configs.steps.length">NEXT</button>
+            </mat-card-actions>
+        </mat-card>
+    </div>
+
+    <button mat-fab color="primary" aria-label="Help demo" class="demo-btn" (click)="isPopupVisible = !isPopupVisible">
+        <img src="assets/images/help.png" alt="Help" width="32">
+    </button>
+
+</div>
+
