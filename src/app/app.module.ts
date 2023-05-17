@@ -11,6 +11,12 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatCardModule} from '@angular/material/card';
+import {CookieService} from "ngx-cookie-service";
+
+
+
 import { WalkThroughDirective } from './walk-through/walk-through.directive';
 
 @NgModule({
@@ -30,9 +36,11 @@ import { WalkThroughDirective } from './walk-through/walk-through.directive';
     FormsModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatIconModule,
+    MatCardModule
   ],
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
