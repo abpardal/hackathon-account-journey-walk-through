@@ -13,6 +13,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
+import {CookieService} from "ngx-cookie-service";
+
 
 
 
@@ -31,9 +33,7 @@ import {MatCardModule} from '@angular/material/card';
     FormsModule,
     MatButtonModule,
     MatFormFieldModule,
-    MatInputModule,
-    MatIconModule,
-    MatCardModule
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
