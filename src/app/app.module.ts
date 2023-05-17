@@ -11,16 +11,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-
-
-
+import { WalkThroughDirective } from './walk-through/walk-through.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     WalkThroughComponent,
+    WalkThroughComponent,
     SitesComponent,
-    DashboardComponent
+    DashboardComponent,
+    WalkThroughDirective
   ],
   imports: [
     BrowserModule,
