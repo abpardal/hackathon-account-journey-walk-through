@@ -1,5 +1,4 @@
 import {
-  AfterViewInit,
   Directive,
   ElementRef,
   Input,
@@ -19,7 +18,7 @@ import {WalkThroughStepsService} from "./walk-through-steps-service";
 export class WalkThroughDirective {
 
   private readonly currentElement: ElementRef;
-  @Input() set currentStep(value) {
+  @Input() set currentStep(value: number) {
     this.wtStepsStorage.addStepElement({ stepNum: value, stepElement:  this.currentElement })
   }
 

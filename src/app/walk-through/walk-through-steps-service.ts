@@ -7,13 +7,13 @@ import { BehaviorSubject } from "rxjs";
 export class WalkThroughStepsService {
 
     // Observable for the steps elements
-    private currentElement = new BehaviorSubject(null);
+    private currentElement = new BehaviorSubject({ });
     currentElement$ = this.currentElement.asObservable();
 
-    private currentStepNum = new BehaviorSubject(null);
+    private currentStepNum = new BehaviorSubject(0);
     currentStepNum$ = this.currentStepNum.asObservable();
 
-    private stepsAry = [];
+    private stepsAry: {stepNum: number, stepElement: ElementRef}[] = [];
 
     constructor() {
         this.getElementAtWalkthroughIndex();
