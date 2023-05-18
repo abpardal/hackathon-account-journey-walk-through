@@ -1,4 +1,4 @@
-import { Component, ElementRef, Input, Renderer2, ViewChild} from '@angular/core';
+import { Component, ElementRef, Input, ViewChild} from '@angular/core';
 import { DemoStep } from '../models/demo-configs.model';
 import {WalkThroughStepsService} from "./walk-through-steps-service";
 
@@ -15,7 +15,7 @@ export class WalkThroughComponent {
   isPopupVisible = true;
   pointSet: PointSet | undefined = undefined
 
-  constructor(private walkThroughService: WalkThroughStepsService, private renderer: Renderer2) {
+  constructor(private walkThroughService: WalkThroughStepsService) {
     this.getCurrentWalkThroughElement();
     this.listenForAutoClickTrigger();
   }
