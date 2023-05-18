@@ -8,13 +8,36 @@
 
     .card-wrapper {
         width: 320px;
-        height: 180px;
+        height: 200px;
         background-color: rgba(0, 0, 0, 0.04);
         justify-content: space-between;
 
         .actions {
-            justify-content: space-between;
-            padding: 8px 16px;
+            padding: 16px;
+            flex-direction: column;
+            p {
+                text-align: center;
+            }
+        }
+
+        .done-btn {
+            float: right;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+
+        .btn-wrapper {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+        }
+
+        .header-wrapper {
+            padding: 24px 16px 0;
         }
     }
 }

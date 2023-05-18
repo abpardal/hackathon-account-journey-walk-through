@@ -24,13 +24,13 @@ export class WalkThroughComponent {
   skipDemo(): void {
     this.isPopupVisible = false;
     this.configs.isVisible = false;
+    this.configs.steps.map((el: DemoStep) => el.isActive = false);
     // TODO - update info on cookies
   }
 
   nextStep(): void {
-    const nextStepId = this.actualStepId + 1;
-    this.configs.steps[this.actualStepId].isActive = false;
-    this.configs.steps[nextStepId].isActive = true;
+    const nextStepId = this.actualStep ? this.actualStep.id + 1 : 1;
+    this.configs.steps.map((el: DemoStep) => el.isActive = el.id === nextStepId );
 
     this.walkThroughService.setCurrentStepNum(nextStepId);
 
@@ -62,17 +62,17 @@ export class WalkThroughComponent {
       width: points.width, bottom: points.bottom, right: points.right, x: points.x, y: points.y }
   }
 
-  get actualStepId(): number {
-    const step = this.configs.steps.find((el: DemoStep) => el.isActive)
-    return step ? step.id : 0;
-  }
-
   get title(): string {
-    return this.actualStepId === 0 ? this.configs?.title : this.configs?.steps[this.actualStepId].title;
+    return this.actualStep === null ? this.configs.title : this.actualStep.title;
   }
 
   get description(): string {
-    return this.actualStepId === 0 ? this.configs.description : this.configs.steps[this.actualStepId].description;
+    return this.actualStep === null  ? this.configs.description : this.actualStep.description;
+  }
+
+  get actualStep(): DemoStep {
+    const step = this.configs.steps.find((el: DemoStep) => el.isActive)
+    return step ? step : null;
   }
 
 }
