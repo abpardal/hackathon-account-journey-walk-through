@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DemoConfigs } from '../models/demo-configs.model';
+import {DemoConfig} from "../shared/configs";
 
 @Component({
   selector: 'app-dashboard',
@@ -8,29 +9,7 @@ import { DemoConfigs } from '../models/demo-configs.model';
 })
 export class DashboardComponent {
 
-  demoConfigs: DemoConfigs = {
-    position: {
-      bottom: '16px',
-      right: '16px'
-    }, 
-    isVisible: true,
-    title: 'Hey, there!',
-    description: 'Welcome to our demo. Let\'s start exploring the plataform', 
-    steps: [
-      {
-        id: 1,
-        title: 'Let\'s create a new site',
-        description: 'Test',
-        isActive: false
-      },
-      {
-        id: 2,
-        title: 'Sites Page',
-        description: 'Test',
-        isActive: false
-      },
-    ] 
-  };
+  demoConfigs = DemoConfig
 
   constructor() {
     // TODO - check if user can see demo + steps

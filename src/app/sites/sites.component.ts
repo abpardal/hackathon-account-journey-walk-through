@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {DemoConfig} from "../shared/configs";
 
 @Component({
   selector: 'app-sites',
@@ -7,7 +8,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./sites.component.scss']
 })
 export class SitesComponent {
-  public form: FormGroup;
+    public form: FormGroup;
+    demoConfigs = DemoConfig;
 
   constructor(
     private formBuilder: FormBuilder
