@@ -2,7 +2,7 @@
     <div *ngIf="isPopupVisible">
         <mat-card class="card-wrapper">
             <mat-card-header class="header-wrapper">
-                <button mat-icon-button aria-label="Close demo" class="close-btn" *ngIf="!actualStep || actualStep.id !== configs.steps.length">
+                <button mat-icon-button (click)="skipDemo()" aria-label="Close demo" class="close-btn" *ngIf="!actualStep || actualStep.id !== configs.steps.length">
                     <mat-icon>close</mat-icon>
                 </button>
 
