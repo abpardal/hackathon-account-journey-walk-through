@@ -10,7 +10,9 @@
               </mat-card-content>
             <mat-card-actions class="actions">
               <button mat-raised-button (click)="skipDemo()">SKIP</button>
-              <button mat-raised-button color="primary" (click)="nextStep()" [disabled]="actualStepId === configs.steps.length">NEXT</button>
+              <button mat-raised-button color="primary"
+                      (click)="nextStep()"
+                      [disabled]="actualStepId === configs.steps.length">NEXT</button>
             </mat-card-actions>
         </mat-card>
     </div>

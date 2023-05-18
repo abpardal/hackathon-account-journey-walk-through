@@ -7,27 +7,34 @@ import { BehaviorSubject } from "rxjs";
 export class WalkThroughStepsService {
 
     // Observable for the steps elements
-    private currentElement = new BehaviorSubject({ });
+    private currentElement = new BehaviorSubject({} as {stepNum: number, triggerNext: boolean, stepElement: ElementRef<any>});
     currentElement$ = this.currentElement.asObservable();
 
     private currentStepNum = new BehaviorSubject(0);
     currentStepNum$ = this.currentStepNum.asObservable();
 
-    private stepsAry: {stepNum: number, stepElement: ElementRef}[] = [];
+    private triggerClick = new BehaviorSubject(false);
+    triggerClick$ = this.triggerClick.asObservable();
+
+    private stepsAry: {stepNum: number, triggerNext: boolean, stepElement: ElementRef}[] = [];
 
     constructor() {
         this.getElementAtWalkthroughIndex();
     }
 
-    setCurrentWalkThroughNum(stepNum: number): void {
+    setCurrentStepNum(stepNum: number): void {
         console.log('setCurrentWalkThroughNum: ', stepNum)
         if (stepNum > 0) {
             this.currentStepNum.next(stepNum);
         }
     }
 
-    addStepElement(element: { stepNum: number, stepElement: ElementRef } ): void {
+    addStepElement(element: { stepNum: number, triggerNext: boolean, stepElement: ElementRef } ): void {
         this.stepsAry.push(element);
+    }
+
+    triggerAutoClick(): void {
+        this.triggerClick.next(true);
     }
 
     // listen for a new step number, find element associated with that number
@@ -39,7 +46,6 @@ export class WalkThroughStepsService {
                 return stepEl.stepNum === stepNum;
             })
             if (currentElement[0]) {
-                console.log('currentElement[0]: ', currentElement[0])
                 this.currentElement.next(currentElement[0])
             }
         })
