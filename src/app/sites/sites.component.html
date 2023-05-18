@@ -17,9 +17,32 @@
             </mat-form-field>
         </div>
 
+        <div class="form-wrapper">
+            <mat-form-field>
+                <mat-label>Text</mat-label>
+                <textarea appWalkThrough [currentStep]="{step: 4}" matInput formControlName="text" maxlength="200" minlength="3" rows="5"></textarea>
+            </mat-form-field>
+        </div>
+
+        <div class="form-wrapper">
+            <mat-form-field>
+                <mat-label>Category</mat-label>
+               <!-- <mat-select appWalkThrough [currentStep]="{step: 5}" matInput formControlName="category"> -->
+                <mat-select>
+                    <mat-option value="adult">Adult</mat-option>
+                    <mat-option value="downloads">Downloads</mat-option>
+                    <mat-option value="entertainment">Entertainment & Lifestyle</mat-option>
+                    <mat-option value="streaming">Streaming</mat-option>
+                    <mat-option value="url-shorteners">URL Shorteners</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+
         <div class="d-flex flex-row footer">
             <button appWalkThrough [currentStep]="{step: 4}" mat-raised-button type="submit" [ngClass]="{'disabled-btn': !form.valid}" [disabled]="!form.valid" (click)="submit()">Create</button>
         </div>
+
+
     </form>     
     
 </div>
