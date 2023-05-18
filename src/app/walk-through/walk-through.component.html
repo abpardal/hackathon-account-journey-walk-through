@@ -1,16 +1,27 @@
 <div class="container" [ngStyle]="{'top': configs.position?.top, 'bottom': configs.position?.bottom, 'right': configs.position?.right, 'left': configs.position?.left}">
     <div *ngIf="isPopupVisible">
         <mat-card class="card-wrapper">
-            <mat-card-header>
-              <mat-card-title>{{title}}</mat-card-title>
-              <mat-card-subtitle>{{description}}</mat-card-subtitle>
+            <mat-card-header class="header-wrapper">
+                <button mat-icon-button aria-label="Close demo" class="close-btn" *ngIf="!actualStep || actualStep.id !== configs.steps.length">
+                    <mat-icon>close</mat-icon>
+                </button>
+            
+                <mat-card-title>{{title}}</mat-card-title>
+                <mat-card-subtitle>{{description}}</mat-card-subtitle>
             </mat-card-header>
-            <mat-card-content *ngIf="actualStepId > 0">
-                <p>{{actualStepId}}/{{configs.steps.length}}</p>
-              </mat-card-content>
+
+            <!-- <mat-card-content *ngIf="actualStep !== null">
+                <p>{{actualStep.id}}/{{configs.steps.length}}</p>
+            </mat-card-content> -->
+
             <mat-card-actions class="actions">
-              <button mat-raised-button (click)="skipDemo()">SKIP</button>
-              <button mat-raised-button color="primary" (click)="nextStep()" [disabled]="actualStepId === configs.steps.length">NEXT</button>
+                <p *ngIf="actualStep !== null">{{actualStep.id}}/{{configs.steps.length}}</p>
+                <div class="btn-wrapper" [ngStyle]="{'justify-content': actualStep && actualStep.id === configs.steps.length ? 'flex-end': 'space-between'}">
+                    <button mat-raised-button (click)="skipDemo()" *ngIf="!actualStep || actualStep.id !== configs.steps.length">SKIP</button>
+                    <button mat-raised-button color="primary" (click)="nextStep()" *ngIf="!actualStep || actualStep.id !== configs.steps.length">NEXT</button>
+                    <button mat-raised-button color="primary" class="done-btn" (click)="skipDemo()" *ngIf="actualStep && actualStep.id === configs.steps.length">DONE</button>
+                </div>
+              
             </mat-card-actions>
         </mat-card>
     </div>
