@@ -34,8 +34,23 @@
 
 <!--This the element highlighter, we get the co-ordinates from the current element to set the position attributes-->
 <!--<div style="position:absolute; top:0px; left:0px; z-index:9999;pointer-events: none">-->
-<!--    <svg *ngIf="pointSet" width="8000" height="600">-->
-<!--        <rect [attr.x]="pointSet.x - 4" [attr.y]="pointSet.y - 4" [attr.width]="pointSet.width + 8" [attr.height]="pointSet.height + 8"-->
-<!--        style="outline:#60AF4C;fill:none;stroke-width:4;stroke:#60AF4C;border: 5px solid #60AF4C;padding: 5px;" />-->
-<!--        </svg>-->
+    <!--<svg *ngIf="pointSet" width="8000" height="600">-->
+        <!--<rect [attr.x]="pointSet.x - 4" [attr.y]="pointSet.y - 4" [attr.width]="pointSet.width + 8" [attr.height]="pointSet.height + 8"-->
+        <!--style="outline:#60AF4C;fill:none;stroke-width:4;stroke:#60AF4C;border: 5px solid #60AF4C;padding: 5px;" />-->
+       <!--</svg>-->
 <!--</div>-->
+
+
+<!-- single div With box-shadow -->
+<div *ngIf="pointSet" class="wt-shadow" style="position:absolute; top:{{pointSet.y - 5}}px; left:{{pointSet.x - 5}}px; width:{{pointSet.width + 10}}px; height:{{pointSet.height + 10}}px; z-index:9990; box-shadow: 0 0 0 99999px rgba(0, 0, 0, .65); pointer-events:none; transition: all 0.5s ease;">
+</div>
+
+<!-- 4 divs surrounding -->
+<!-- Top shadow -->
+  <!--<div *ngIf="pointSet" class="wt-shadow" style="position:absolute; top:0px; left:0px; width:20px; height:50px; z-index:9990; pointer-events:none; transition: all 0.5s ease;"></div>-->
+<!-- Right shadow -->
+  <!--<div *ngIf="pointSet" class="wt-shadow" style="position:absolute; top:20px; left:50px; width:20px; height:50px; z-index:9990; pointer-events:none; transition: all 0.5s ease;"></div>-->
+<!-- Bottom shadow -->
+  <!--<div *ngIf="pointSet" class="wt-shadow" style="position:absolute; top:50px; left:70px; width:20px; height:50px; z-index:9990; pointer-events:none; transition: all 0.5s ease;"></div>-->
+<!-- Left shadow -->
+  <!--<div *ngIf="pointSet" class="wt-shadow" style="position:absolute; top:90px; left:90px; width:20px; height:50px; z-index:9990; pointer-events:none; transition: all 0.5s ease;"></div>-->
